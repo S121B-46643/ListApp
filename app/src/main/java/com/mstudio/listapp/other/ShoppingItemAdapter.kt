@@ -21,6 +21,7 @@ class ShoppingItemAdapter(
         return ShoppingViewHolder(view)
     }
 
+
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ShoppingViewHolder, position: Int) {
         val curShoppingItem = items[position]
