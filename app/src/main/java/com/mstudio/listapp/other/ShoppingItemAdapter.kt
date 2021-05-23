@@ -1,6 +1,7 @@
 package com.mstudio.listapp.other
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,12 +21,13 @@ class ShoppingItemAdapter(
         return ShoppingViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ShoppingViewHolder, position: Int) {
         val curShoppingItem = items[position]
 
 
         holder.itemView.tvName.text = curShoppingItem.name
-        holder.itemView.tvAmount.text = curShoppingItem.amount.toString()
+        holder.itemView.tvAmount.text = "Amount: "+curShoppingItem.amount.toString()
 
         holder.itemView.ivDelete.setOnClickListener {
             viewModel.delete(curShoppingItem)
