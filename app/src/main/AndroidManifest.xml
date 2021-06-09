@@ -8,9 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".ShoppingApplication"
+        android:name=".ReportAplication"
         android:theme="@style/Theme.ListApp">
-        <activity android:name=".ui.shoppinglist.ShoppingActivity">
+        <activity android:name=".ui.shoppinglist.ReportActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,27 +6,25 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mstudio.listapp.R
-import com.mstudio.listapp.data.db.ShoppingDatabase
-import com.mstudio.listapp.data.db.entities.ShoppingItem
-import com.mstudio.listapp.other.ShoppingItemAdapter
-import com.mstudio.listapp.data.repositories.ShoppingRepository
-import kotlinx.android.synthetic.main.activity_shopping.*
+import com.mstudio.listapp.data.db.entities.ReportItem
+import com.mstudio.listapp.other.ReportItemAtapter
+import kotlinx.android.synthetic.main.activity_report.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class ShoppingActivity : AppCompatActivity(), KodeinAware {
+class ReportActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
-    private val factory: ShoppingViewModelFactory by instance()
+    private val factory: ReportViewModelFactory by instance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shopping)
+        setContentView(R.layout.activity_report)
 
-        val viewModel = ViewModelProviders.of(this, factory).get(ShoppingViewModel::class.java)
+        val viewModel = ViewModelProviders.of(this, factory).get(ReportViewModel::class.java)
 
-        val adapter = ShoppingItemAdapter(listOf(), viewModel)
+        val adapter = ReportItemAtapter(listOf(), viewModel)
 
         rvShoppingItems.layoutManager = LinearLayoutManager(this)
         rvShoppingItems.adapter = adapter
@@ -37,8 +35,8 @@ class ShoppingActivity : AppCompatActivity(), KodeinAware {
         })
 
         fab.setOnClickListener {
-            AddShoppingItemDialog(context = this, object : AddDialogListener{
-                override fun onAddButtonCLicked(item: ShoppingItem) {
+            AddReportItemDialog(context = this, object : AddDialogListener{
+                override fun onAddButtonCLicked(item: ReportItem) {
                     viewModel.upsert(item)
                 }
             }).show()

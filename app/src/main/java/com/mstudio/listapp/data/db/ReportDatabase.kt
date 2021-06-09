@@ -4,19 +4,19 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.mstudio.listapp.data.db.entities.ShoppingItem
+import com.mstudio.listapp.data.db.entities.ReportItem
 
 
 @Database(
-    entities = [ShoppingItem::class],
+    entities = [ReportItem::class],
     version = 1)
-abstract class ShoppingDatabase: RoomDatabase() {
+abstract class ReportDatabase: RoomDatabase() {
 
-    abstract fun getShoppingDao(): ShoppingDao
+    abstract fun getShoppingDao(): ReportDao
 
     companion object {
         @Volatile
-        private var instance: ShoppingDatabase? = null
+        private var instance: ReportDatabase? = null
         private var LOCK = Any()
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
@@ -25,6 +25,6 @@ abstract class ShoppingDatabase: RoomDatabase() {
 
         private fun createDatabase(context: Context) =
             Room.databaseBuilder(context.applicationContext,
-                ShoppingDatabase::class.java, "ShopingDB.db").build()
+                ReportDatabase::class.java, "ShopingDB.db").build()
     }
 }

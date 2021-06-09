@@ -29,7 +29,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_delete"
-        app:layout_constraintEnd_toStartOf="@+id/ivPlus"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -41,19 +41,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAmount" />
 
-    <ImageView
-        android:id="@+id/ivMinus"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_minus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ivPlus"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_plus"
-        app:layout_constraintEnd_toStartOf="@+id/ivMinus"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

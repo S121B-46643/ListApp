@@ -1,21 +1,21 @@
 package com.mstudio.listapp.ui.shoppinglist
 
 import androidx.lifecycle.ViewModel
-import com.mstudio.listapp.data.db.entities.ShoppingItem
-import com.mstudio.listapp.data.repositories.ShoppingRepository
+import com.mstudio.listapp.data.db.entities.ReportItem
+import com.mstudio.listapp.data.repositories.ReportRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ShoppingViewModel (
-    private val repository: ShoppingRepository
+class ReportViewModel (
+    private val repository: ReportRepository
         ) : ViewModel() {
 
-    fun upsert(item: ShoppingItem) = CoroutineScope(Dispatchers.Main).launch {
+    fun upsert(item: ReportItem) = CoroutineScope(Dispatchers.Main).launch {
         repository.upsert(item)
     }
 
-    fun delete(item: ShoppingItem) = CoroutineScope(Dispatchers.Main).launch {
+    fun delete(item: ReportItem) = CoroutineScope(Dispatchers.Main).launch {
         repository.delete(item)
     }
 
